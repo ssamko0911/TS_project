@@ -14,21 +14,26 @@
     </div>
 <script type="module">
     /**
-     =====================================================================
-     Start of Main javascript program
-     =====================================================================
+     Zeller's congruence
+
+     Zeller's congruence is an algorithm devised by Christian Zeller
+     in the 19th century to calculate the day of the week for any Julian or Gregorian calendar date.
      More info: https://en.wikipedia.org/wiki/Zeller%27s_congruence
+
+     Current program's implementation is based on calculation for Gregorian calendar date.
      */
 
+
+    // Imports
     import {DAYS_OF_WEEK} from "./src/contains/DAYS_OF_WEEK.js";
     import {assert} from "./src/assert.js";
-    import {getInputYear} from "./src/functions.js";
-    import {getInputMonth} from "./src/functions.js";
-    import {getInputDay} from "./src/functions.js";
-    import {whichMonth} from "./src/functions.js";
-    import {getDayByZellerAlgorythm} from "./src/zeller.js";
+    import {getInputYear} from "./src/helperFunctions.js";
+    import {getInputMonth} from "./src/helperFunctions.js";
+    import {getInputDay} from "./src/helperFunctions.js";
+    import {getMonthName} from "./src/helperFunctions.js";
+    import {getDayByZellerAlgorythm} from "./src/coreZellerFunction.js";
 
-    //Start of running tests;
+    //Start running tests;
     assert(1, 1, 1999, "Friday");
     assert(1, 3, 1999, "Monday");
 
@@ -49,8 +54,9 @@
 
     assert(1, 1, 2005, "Saturday");
     assert(1, 3, 2005, "Tuesday");
-    //End of running tests;
+    //End running tests;
 
+    // Main
     const year = getInputYear();
 
     const month = getInputMonth();
@@ -61,8 +67,9 @@
 
     const parentElement = document.querySelector('.container');
     let resultElement = document.createElement('div');
-    resultElement.innerHTML = `<h2>${DAYS_OF_WEEK[dayOfWeek]}, ${day} ${whichMonth(month)} ${year}</h2>`;
+    resultElement.innerHTML = `<h2>${DAYS_OF_WEEK[dayOfWeek]}, ${day} ${getMonthName(month)} ${year}</h2>`;
     parentElement.append(resultElement);
+    }
 </script>
 </body>
 </html>
