@@ -56,19 +56,26 @@
     assert(1, 3, 2005, "Tuesday");
     //End running tests;
 
-    // Main
+    // Start main program
+
+    // Start user inputs section
     const year = getInputYear();
 
     const month = getInputMonth();
 
     const day = getInputDay(year, month);
+    // End user inputs section
 
+    // Core calculation
     const dayOfWeek = getDayByZellerAlgorythm(day, month, year);
 
+    // Start output section;
     const parentElement = document.querySelector('.container');
     let resultElement = document.createElement('div');
     resultElement.innerHTML = `<h2>${DAYS_OF_WEEK[dayOfWeek]}, ${day} ${getMonthName(month)} ${year}</h2>`;
     parentElement.append(resultElement);
+    // End output section;
+    // End main program
 </script>
 </body>
 </html>
