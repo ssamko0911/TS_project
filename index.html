@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <title>Zeller&apos;s Congruence</title>
+    <link rel="icon" type="image/x-icon" href="src/img/favicon.png">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 90vh;
+        }
+
+        main {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Zeller&apos;s Congruence
+        </h1>
+        <p>
+            You will need to enter the day, month and year of the date you are interested
+            in and the program will tell you what day that was.
+        </p>
+    </div>
+    <footer>Coded by ssamko0911 and
+        <a href="https://gitlab.com/ss_dev1/ts_project/-/tree/solution-v001?ref_type=heads" target="_blank">open-sourced</a>
+    </footer>
+<script type="module">
+    /**
+     Zeller's congruence
+
+     Zeller's congruence is an algorithm devised by Christian Zeller
+     in the 19th century to calculate the day of the week for any Julian or Gregorian calendar date.
+     More info: https://en.wikipedia.org/wiki/Zeller%27s_congruence
+
+     Current program's implementation is based on calculation for Gregorian calendar date.
+     */
+
+
+    // Imports
+    import {DAYS_OF_WEEK} from "./src/contains/DAYS_OF_WEEK.js";
+    import {assert} from "./src/assert.js";
+    import {getInputYear} from "./src/helperFunctions.js";
+    import {getInputMonth} from "./src/helperFunctions.js";
+    import {getInputDay} from "./src/helperFunctions.js";
+    import {getMonthName} from "./src/helperFunctions.js";
+    import {getDayByZellerAlgorythm} from "./src/coreZellerFunction.js";
+
+    //Start running tests;
+    assert(1, 1, 1999, "Friday");
+    assert(1, 3, 1999, "Monday");
+
+    assert(1, 1, 2000, "Saturday");
+    assert(1, 3, 2000, "Wednesday");
+
+    assert(1, 1, 2001, "Monday");
+    assert(1, 3, 2001, "Thursday");
+
+    assert(1, 1, 2002, "Tuesday");
+    assert(1, 3, 2002, "Friday");
+
+    assert(1, 1, 2003, "Wednesday");
+    assert(1, 3, 2003, "Saturday");
+
+    assert(1, 1, 2004, "Thursday");
+    assert(1, 3, 2004, "Monday");
+
+    assert(1, 1, 2005, "Saturday");
+    assert(1, 3, 2005, "Tuesday");
+    //End running tests;
+
+    // Start main program
+
+    // Start user inputs section
+    const year = getInputYear();
+
+    const month = getInputMonth();
+
+    const day = getInputDay(year, month);
+    // End user inputs section
+
+    // Core calculation
+    const dayOfWeek = getDayByZellerAlgorythm(day, month, year);
+
+    // Start output section;
+    const parentElement = document.querySelector('.container');
+    let resultElement = document.createElement('div');
+    resultElement.innerHTML = `<h2>${DAYS_OF_WEEK[dayOfWeek]}, ${day} ${getMonthName(month)} ${year}</h2>`;
+    parentElement.append(resultElement);
+    // End output section;
+    // End main program
+</script>
+</body>
+</html>
+
