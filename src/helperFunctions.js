@@ -14,7 +14,7 @@ const defaultMonth = (new Date().getMonth() + 1).toString();
  * Default value to prompt user current day as possible input
  * @type {string}
  */
-const defaultDay = new Date().getDay().toString();
+const defaultDay = new Date().getDate().toString();
 
 /**
  * Written by: Serhii Samko
