@@ -1,7 +1,7 @@
 # Zeller's congruence
 
 [Zeller's congruence](https://en.wikipedia.org/wiki/Zeller%27s_congruence)
-Zeller's congruence is an algorithm devised by Christian Zeller in the 19th century to calculate
+is an algorithm devised by Christian Zeller in the 19th century to calculate
 the day of the week for any Julian or Gregorian calendar date.
 
 
